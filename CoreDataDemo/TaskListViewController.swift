@@ -118,6 +118,7 @@ class TaskListViewController: UITableViewController {
             }
         }
         */
+        StorageManager.delegate.saveContext()
     }
 
 }
