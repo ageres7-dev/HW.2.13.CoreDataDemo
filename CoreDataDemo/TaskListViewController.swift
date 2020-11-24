@@ -6,11 +6,13 @@
 //
 
 import UIKit
-import CoreData
+//import CoreData
 
 class TaskListViewController: UITableViewController {
     
-    private let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+//    private let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+//    private let context = StorageManager.delegate.persistentContainer.viewContext
+    
     
     private let cellID = "cell"
     private var tasks: [Task] = []
@@ -65,6 +67,7 @@ class TaskListViewController: UITableViewController {
     }
     
     private func fetchData() {
+       /*
         let fetchRequest: NSFetchRequest<Task> = Task.fetchRequest()
         
         do {
@@ -73,6 +76,9 @@ class TaskListViewController: UITableViewController {
         } catch let error {
             print(error)
         }
+ */
+        tasks = StorageManager.delegate.fetchData()
+        tableView.reloadData()
     }
     
     private func showAlert(withTitle title: String, andMessage message: String) {
@@ -91,15 +97,19 @@ class TaskListViewController: UITableViewController {
     }
     
     private func save(_ taskName: String) {
+        /*
         guard let entityDescription = NSEntityDescription.entity(forEntityName: "Task", in: context) else { return }
         guard let task = NSManagedObject(entity: entityDescription, insertInto: context) as? Task else { return }
         
         task.name = taskName
-        tasks.append(task)
+        */
+        
+        
+        tasks.append(StorageManager.delegate.newTask(taskName))
         
         let cellIndex = IndexPath(row: tasks.count - 1, section: 0)
         tableView.insertRows(at: [cellIndex], with: .automatic)
-        
+        /*
         if context.hasChanges {
             do {
                 try context.save()
@@ -107,6 +117,7 @@ class TaskListViewController: UITableViewController {
                 print(error)
             }
         }
+        */
     }
 
 }
