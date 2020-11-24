@@ -54,6 +54,8 @@ class TaskListViewController: UITableViewController {
             action: #selector(addNewTask)
         )
         
+        navigationItem.leftBarButtonItem = editButtonItem
+        
         navigationController?.navigationBar.tintColor = .white
     }
     
@@ -140,3 +142,22 @@ extension TaskListViewController {
     }
 }
 
+// MARK: - Table view delegate
+extension TaskListViewController {
+    
+    override func tableView(_ tableView: UITableView, moveRowAt sourceIndexPath: IndexPath, to destinationIndexPath: IndexPath) {
+        let currenTask = tasks.remove(at: sourceIndexPath.row)
+        tasks.insert(currenTask, at: destinationIndexPath.row)
+    }
+    
+    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        
+        if editingStyle == .delete {
+            let task = tasks.remove(at: indexPath.row)
+            
+            tableView.deleteRows(at: [indexPath], with: .automatic)
+            //вызвать удаление из StorageManager
+            StorageManager.delegate.removeTask(task)
+        }
+    }
+}
