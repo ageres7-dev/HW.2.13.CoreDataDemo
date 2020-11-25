@@ -63,6 +63,7 @@ class StorageManager {
             print(error)
         }
         return result
+    
     }
     
     
@@ -96,6 +97,7 @@ class StorageManager {
     func removeTask(_ task:Task) {
 //        let context = context) else { return }
         context.delete(task)
+    
         saveContext()
         
     }

@@ -145,19 +145,54 @@ extension TaskListViewController {
 // MARK: - Table view delegate
 extension TaskListViewController {
     
+    
+    
     override func tableView(_ tableView: UITableView, moveRowAt sourceIndexPath: IndexPath, to destinationIndexPath: IndexPath) {
         let currenTask = tasks.remove(at: sourceIndexPath.row)
         tasks.insert(currenTask, at: destinationIndexPath.row)
+        //обновть целеком или удалить и добавить целеком
+        StorageManager.delegate.saveContext()
     }
     
+    override func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+        let edit = UIContextualAction(style: .normal, title: "Edit") { (action, _, completion) in
+            print("edit")
+            
+            let task = self.tasks[indexPath.row]
+            self.showAlert(withTitle: "Edit Task", andMessage: "What do you want to do?")
+            
+            
+            
+            completion(true)
+        }
+        
+        let delete = UIContextualAction(style: .destructive, title: "delete") { (action, _, completion) in
+            print("delete")
+            let task = self.tasks.remove(at: indexPath.row)
+        
+            tableView.deleteRows(at: [indexPath], with: .automatic)
+            StorageManager.delegate.removeTask(task)
+            
+            completion(true)
+        }
+        
+        let config = UISwipeActionsConfiguration(actions: [delete, edit])
+//        config.performsFirstActionWithFullSwipe = false
+        return config
+    }
+    /*
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        
         
         if editingStyle == .delete {
             let task = tasks.remove(at: indexPath.row)
             
             tableView.deleteRows(at: [indexPath], with: .automatic)
-            //вызвать удаление из StorageManager
             StorageManager.delegate.removeTask(task)
         }
     }
+    */
+    
+    
+    
 }
