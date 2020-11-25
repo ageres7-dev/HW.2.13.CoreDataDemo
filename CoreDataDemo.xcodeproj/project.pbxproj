@@ -13,7 +13,6 @@
 		A8955887256C230A0080C497 /* CoreDataDemo.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = A8955885256C230A0080C497 /* CoreDataDemo.xcdatamodeld */; };
 		A8955889256C230D0080C497 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A8955888256C230D0080C497 /* Assets.xcassets */; };
 		A895588C256C230D0080C497 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A895588A256C230D0080C497 /* LaunchScreen.storyboard */; };
-		A8955899256C2B070080C497 /* NewTaskViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8955898256C2B070080C497 /* NewTaskViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -25,7 +24,6 @@
 		A8955888256C230D0080C497 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A895588B256C230D0080C497 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		A895588D256C230D0080C497 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		A8955898256C2B070080C497 /* NewTaskViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewTaskViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -65,7 +63,6 @@
 				A895588A256C230D0080C497 /* LaunchScreen.storyboard */,
 				A895588D256C230D0080C497 /* Info.plist */,
 				A8955885256C230A0080C497 /* CoreDataDemo.xcdatamodeld */,
-				A8955898256C2B070080C497 /* NewTaskViewController.swift */,
 			);
 			path = CoreDataDemo;
 			sourceTree = "<group>";
@@ -142,7 +139,6 @@
 				A8955881256C230A0080C497 /* TaskListViewController.swift in Sources */,
 				A8955887256C230A0080C497 /* CoreDataDemo.xcdatamodeld in Sources */,
 				A50F5B20256D893900591F26 /* StorageManager.swift in Sources */,
-				A8955899256C2B070080C497 /* NewTaskViewController.swift in Sources */,
 				A895587D256C230A0080C497 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
