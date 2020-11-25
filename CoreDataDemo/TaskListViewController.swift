@@ -139,8 +139,7 @@ extension TaskListViewController {
     
     override func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
         let edit = UIContextualAction(style: .normal, title: "Edit") { (_, _, completion) in
-            print("edit")
-            
+
             let task = self.tasks[indexPath.row]
             self.editShowAlert(withTitle: "Edit Task",
                                andMessage: "What do you want to do?",
@@ -151,7 +150,7 @@ extension TaskListViewController {
         }
         
         let delete = UIContextualAction(style: .destructive, title: "Delete") { (action, _, completion) in
-            print("delete")
+            
             let task = self.tasks.remove(at: indexPath.row)
         
             tableView.deleteRows(at: [indexPath], with: .automatic)
